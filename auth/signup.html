@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up – HealthTwin AI</title>
+    <meta name="description" content="Create your HealthTwin AI account and build your Digital Twin." />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>" />
+</head>
+
+<body class="auth-body">
+    <div class="auth-container">
+        <!-- Left: Branding -->
+        <div class="auth-brand">
+            <div class="auth-brand-inner">
+                <div class="auth-orb auth-orb-1"></div>
+                <div class="auth-orb auth-orb-2"></div>
+                <div class="auth-orb auth-orb-3"></div>
+                <div class="auth-brand-content">
+                    <div class="nav-brand" style="justify-content:center;margin-bottom:2rem">
+                        <div class="icon">🧬</div>
+                        <span>HealthTwin AI</span>
+                    </div>
+                    <h1 class="auth-brand-title">Build Your<br /><span class="gradient-text">Digital Twin</span></h1>
+                    <p class="auth-brand-desc">Join thousands of users predicting and preventing health risks with
+                        AI-powered simulation.</p>
+                    <div class="auth-brand-features">
+                        <div class="auth-feature"><span class="auth-feature-icon">⚡</span> Real-Time Simulation</div>
+                        <div class="auth-feature"><span class="auth-feature-icon">📊</span> Smart Analytics</div>
+                        <div class="auth-feature"><span class="auth-feature-icon">👤</span> Digital Twin Avatar</div>
+                    </div>
+                </div>
+                <svg class="auth-dna" viewBox="0 0 100 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 0 Q80 50 20 100 Q-40 150 20 200 Q80 250 20 300 Q-40 350 20 400" stroke="url(#dnaGrad1)"
+                        stroke-width="1.5" fill="none" opacity="0.3">
+                        <animate attributeName="d"
+                            values="M20 0 Q80 50 20 100 Q-40 150 20 200 Q80 250 20 300 Q-40 350 20 400;M20 0 Q-40 50 20 100 Q80 150 20 200 Q-40 250 20 300 Q80 350 20 400;M20 0 Q80 50 20 100 Q-40 150 20 200 Q80 250 20 300 Q-40 350 20 400"
+                            dur="8s" repeatCount="indefinite" />
+                    </path>
+                    <path d="M80 0 Q20 50 80 100 Q140 150 80 200 Q20 250 80 300 Q140 350 80 400" stroke="url(#dnaGrad2)"
+                        stroke-width="1.5" fill="none" opacity="0.3">
+                        <animate attributeName="d"
+                            values="M80 0 Q20 50 80 100 Q140 150 80 200 Q20 250 80 300 Q140 350 80 400;M80 0 Q140 50 80 100 Q20 150 80 200 Q140 250 80 300 Q20 350 80 400;M80 0 Q20 50 80 100 Q140 150 80 200 Q20 250 80 300 Q140 350 80 400"
+                            dur="8s" repeatCount="indefinite" />
+                    </path>
+                    <defs>
+                        <linearGradient id="dnaGrad1" x1="0" y1="0" x2="0" y2="400">
+                            <stop offset="0%" stop-color="#00d4ff" />
+                            <stop offset="100%" stop-color="#7c3aed" />
+                        </linearGradient>
+                        <linearGradient id="dnaGrad2" x1="0" y1="0" x2="0" y2="400">
+                            <stop offset="0%" stop-color="#7c3aed" />
+                            <stop offset="100%" stop-color="#ec4899" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+        <!-- Right: Signup Form -->
+        <div class="auth-form-side">
+            <div class="auth-form-card glass-card">
+                <h2 class="auth-form-title">Create Account</h2>
+                <p class="auth-form-subtitle">Start building your Digital Twin in minutes</p>
+                <form id="signupForm" onsubmit="return handleSignup(event)">
+                    <div class="auth-input-group">
+                        <label for="signupName">Full Name</label>
+                        <div class="auth-input-wrap">
+                            <span class="auth-input-icon">👤</span>
+                            <input type="text" id="signupName" placeholder="John Doe" required autocomplete="name" />
+                        </div>
+                    </div>
+                    <div class="auth-input-group">
+                        <label for="signupEmail">Email Address</label>
+                        <div class="auth-input-wrap">
+                            <span class="auth-input-icon">📧</span>
+                            <input type="email" id="signupEmail" placeholder="you@example.com" required
+                                autocomplete="email" />
+                        </div>
+                    </div>
+                    <div class="auth-input-group">
+                        <label for="signupPassword">Password</label>
+                        <div class="auth-input-wrap">
+                            <span class="auth-input-icon">🔒</span>
+                            <input type="password" id="signupPassword" placeholder="Min. 8 characters" required
+                                minlength="8" autocomplete="new-password" />
+                        </div>
+                    </div>
+                    <div class="auth-options">
+                        <label class="auth-checkbox"><input type="checkbox" required /> I agree to the <a href="#"
+                                class="auth-link-accent">Terms</a> & <a href="#"
+                                class="auth-link-accent">Privacy</a></label>
+                    </div>
+                    <button type="submit" class="btn-primary auth-submit" id="signupBtn">
+                        <span class="auth-btn-text">Create Account</span>
+                        <span class="auth-btn-loader" id="signupLoader"></span>
+                    </button>
+                </form>
+                <div class="auth-divider"><span>or continue with</span></div>
+                <button class="auth-social-btn" onclick="handleGoogleSignup()">
+                    <svg width="20" height="20" viewBox="0 0 48 48">
+                        <path fill="#EA4335"
+                            d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+                        <path fill="#4285F4"
+                            d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+                        <path fill="#FBBC05"
+                            d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
+                        <path fill="#34A853"
+                            d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+                    </svg>
+                    Sign up with Google
+                </button>
+                <p class="auth-switch">Already have an account? <a href="login.html" class="auth-link-accent">Sign
+                        in</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleSignup(e) {
+            e.preventDefault();
+            const btn = document.getElementById('signupBtn');
+            const loader = document.getElementById('signupLoader');
+            const text = btn.querySelector('.auth-btn-text');
+            btn.disabled = true;
+            text.style.opacity = '0';
+            loader.classList.add('active');
+            setTimeout(() => {
+                const name = document.getElementById('signupName').value;
+                const email = document.getElementById('signupEmail').value;
+                localStorage.setItem('healthtwin_user', JSON.stringify({ email, name, loggedIn: true, firstLogin: true }));
+                window.location.href = '../index.html';
+            }, 2000);
+            return false;
+        }
+        function handleGoogleSignup() {
+            const btn = document.querySelector('.auth-social-btn');
+            btn.style.pointerEvents = 'none';
+            btn.innerHTML = '<span class="auth-btn-loader active"></span> Connecting...';
+            setTimeout(() => {
+                localStorage.setItem('healthtwin_user', JSON.stringify({ email: 'user@gmail.com', name: 'HealthTwin User', loggedIn: true, firstLogin: true }));
+                window.location.href = '../index.html';
+            }, 2000);
+        }
+        try { const u = JSON.parse(localStorage.getItem('healthtwin_user')); if (u && u.loggedIn) window.location.href = '../index.html'; } catch (e) { }
+    </script>
+</body>
+
+</html>
